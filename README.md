@@ -206,12 +206,3 @@ thus achieving high fidelity even at 1-bit precision.
 
 ---
 
-
-##  References
-
-* **Frantar, M., et al. (2024)** — *HQQ: High-Quality Quantization for Large Language Models*
-* Dettmers et al. (2023) — *QLoRA: Efficient Finetuning of Quantized LLMs*
-* Hu et al. (2021) — *LoRA: Low-Rank Adaptation of LLMs*
-* Lin et al. (2023) — *AWQ: Activation-Aware Weight Quantization for LLMs*
-* Frantar & Alistarh (2022) — *Optimal Brain Compression*
-
