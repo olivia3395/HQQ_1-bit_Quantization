@@ -46,6 +46,8 @@ uses a fixed scaling factor:
 $$
 \tilde{w}_i = \text{round}\left(\frac{w_i}{s}\right) \times s
 $$
+
+
 where ( s ) is the quantization scale shared across many weights.
 
 This uniform scaling causes large rounding errors —
