@@ -185,7 +185,9 @@ extending GPTQ/AWQ principles to ultra-low-bit representations without accuracy 
 ## 10. Theoretical Insight (Simplified)
 
 In 1-bit quantization,
-we represent weight vectors $$ \mathbf{w} \in \mathbb{R}^n ) as ( \mathbf{q} \in {-1,+1}^n $$.
+we represent weight vectors $$
+\mathbf{w} \in \mathbb{R}^n \quad \text{and} \quad \mathbf{q} \in \{-1,+1\}^n
+$$.
 HQQ finds the scaling $$ s^* $$ minimizing quantization error:
 
 
