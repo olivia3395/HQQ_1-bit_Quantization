@@ -42,6 +42,7 @@ while retaining **>99% of baseline performance**.
 ### Traditional quantization (e.g., uniform 4-bit)
 
 uses a fixed scaling factor:
+
 $$
 \tilde{w}_i = \text{round}\left(\frac{w_i}{s}\right) \times s
 $$
@@ -59,9 +60,11 @@ Instead of using one fixed scale,
 and **learns optimal reconstruction parameters** to reduce the error.
 
 Its optimization goal is:
+
 $$
 \min_{q, s} | W - s \cdot q |_2^2
 $$
+
 subject to ( q \in {-1, +1} )  (for 1-bit quantization).
 
 This is solved **analytically** or via **iterative updates**,
@@ -184,7 +187,6 @@ we represent weight vectors ( \mathbf{w} \in \mathbb{R}^n ) as ( \mathbf{q} \in 
 HQQ finds the scaling ( s^* ) minimizing quantization error:
 
 
-
 $$
 s^* = \frac{\mathbf{w}^\top \mathbf{q}}{|\mathbf{q}|_2^2}
 $$
@@ -209,8 +211,3 @@ thus achieving high fidelity even at 1-bit precision.
 * Lin et al. (2023) — *AWQ: Activation-Aware Weight Quantization for LLMs*
 * Frantar & Alistarh (2022) — *Optimal Brain Compression*
 
----
-
-
-Would you like me to follow up with a **side-by-side visual diagram** comparing QLoRA (4-bit fine-tuning) vs HQQ (1-bit post-training quantization)?
-It would clearly show where they differ (trainable vs frozen, quantization scope, hardware load, etc.) — great for inclusion in your README or slides.
