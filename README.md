@@ -104,6 +104,7 @@ Compute per-layer statistics to estimate optimal scaling ranges.
 ### **Step 3: Quantize weights**
 
 Quantize each weight tensor ( W ) to 1-bit using optimized scales ( s_i ):
+
 $$
 \tilde{W}_i = s_i \cdot \text{sign}(W_i)
 $$
@@ -182,6 +183,8 @@ In 1-bit quantization,
 we represent weight vectors ( \mathbf{w} \in \mathbb{R}^n ) as ( \mathbf{q} \in {-1,+1}^n ).
 HQQ finds the scaling ( s^* ) minimizing quantization error:
 
+
+
 $$
 s^* = \frac{\mathbf{w}^\top \mathbf{q}}{|\mathbf{q}|_2^2}
 $$
@@ -190,6 +193,7 @@ Then reconstructs:
 $$
 \tilde{\mathbf{w}} = s^* \mathbf{q}
 $$
+
 
 This yields the **least-squares optimal binary approximation** of ( \mathbf{w} ),
 thus achieving high fidelity even at 1-bit precision.
