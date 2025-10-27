@@ -187,7 +187,7 @@ extending GPTQ/AWQ principles to ultra-low-bit representations without accuracy 
 In 1-bit quantization,
 we represent weight vectors ![equation](https://latex.codecogs.com/png.latex?\mathbf{w}%20\in%20\mathbb{R}^n%20\text{%20is%20quantized%20as%20}%20\mathbf{q}%20\in%20\{-1,+1\}^n)
 
-HQQ finds the scaling $$ s^* $$ minimizing quantization error:
+HQQ finds the scaling s^* minimizing quantization error:
 
 
 $$
