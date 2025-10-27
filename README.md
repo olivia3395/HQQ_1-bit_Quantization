@@ -194,6 +194,7 @@ s^* = \frac{\mathbf{w}^\top \mathbf{q}}{|\mathbf{q}|_2^2}
 $$
 
 Then reconstructs:
+
 $$
 \tilde{\mathbf{w}} = s^* \mathbf{q}
 $$
