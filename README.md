@@ -20,8 +20,6 @@ Quantization compresses models by **representing weights with fewer bits**, e.g.
 But quantizing further — **below 4-bit** — causes **severe accuracy degradation**.
 That’s where **HQQ** comes in.
 
----
-
 ## 2. What is HQQ?
 
 **HQQ** stands for **High-Quality Quantization**,
@@ -35,7 +33,7 @@ In short:
 This means — models like LLaMA-2 or Mistral can be stored and served **50× smaller** than their original size,
 while retaining **>99% of baseline performance**.
 
----
+
 
 ## 3. Core Idea
 
@@ -53,7 +51,7 @@ where ( s ) is the quantization scale shared across many weights.
 This uniform scaling causes large rounding errors —
 especially when weights have diverse magnitudes (as in transformer layers).
 
----
+
 
 ### HQQ’s Key Insight:
 
@@ -76,7 +74,6 @@ In other words —
 
 > HQQ “learns” how to quantize optimally, instead of simply rounding weights.
 
----
 
 ##  4. Why 1-bit is Special
 
@@ -92,11 +89,11 @@ So:
 The challenge is maintaining model accuracy —
 and **HQQ** tackles this by **layer-specific calibration and re-scaling** during quantization.
 
----
+
 
 ##  5. HQQ Technical Pipeline
 
-Here’s how HQQ typically works in practice 👇
+Here’s how HQQ typically works in practice 
 
 ### **Step 1: Load pretrained model**
 
@@ -124,7 +121,7 @@ to minimize reconstruction error layer-by-layer.
 Save and serve the quantized model —
 it loads **50× faster**, fits into a **few gigabytes**, and runs smoothly on a **single consumer GPU**.
 
----
+
 
 ## 6. Quantization Comparison
 
@@ -136,7 +133,7 @@ it loads **50× faster**, fits into a **few gigabytes**, and runs smoothly on a 
 | AWQ          | 3–4 bit     | 4×–5×         | 0–1%                  | Activation-aware                     |
 | **HQQ**      | **1–2 bit** | **8×–16×**    | **≈0–1%**             | **High-fidelity 1-bit quantization** |
 
----
+
 
 ##  7. Why HQQ Works So Well
 
@@ -149,7 +146,7 @@ HQQ avoids the pitfalls of older quantizers by:
 
 These improvements together make 1-bit feasible for real deployment.
 
----
+
 
 ## 8. Practical Benefits
 
@@ -166,7 +163,7 @@ For example:
 * A **70B LLaMA2** (400GB in FP16) can fit into ~25GB with HQQ 1-bit quantization.
 * A **13B model** can fit into laptop GPUs while keeping BLEU / perplexity scores nearly unchanged.
 
----
+
 
 ## 9. Relationship to Other Quantization Methods
 
@@ -180,7 +177,6 @@ For example:
 So HQQ can be viewed as **the next generation of quantization**,
 extending GPTQ/AWQ principles to ultra-low-bit representations without accuracy collapse.
 
----
 
 ## 10. Theoretical Insight (Simplified)
 
@@ -204,5 +200,5 @@ $$
 This yields the **least-squares optimal binary approximation** of ( \mathbf{w} ),
 thus achieving high fidelity even at 1-bit precision.
 
----
+
 
