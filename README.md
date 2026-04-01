@@ -6,21 +6,6 @@ applied to LLaMA 2, with full speed × accuracy × memory benchmarking at 1-bit,
 
 ---
 
-## Table of Contents
-
-1. [Overview](#overview)
-2. [Theory: HQQ Algorithm](#theory)
-3. [Architecture](#architecture)
-4. [Bit-Width Comparison](#bit-width-comparison)
-5. [Project Structure](#project-structure)
-6. [Quick Start](#quick-start)
-7. [Usage](#usage)
-8. [Benchmark Results (Reference)](#benchmark-results)
-9. [Configuration Reference](#configuration-reference)
-10. [Testing](#testing)
-11. [References](#references)
-
----
 
 ## Overview
 
@@ -41,7 +26,7 @@ Unlike GPTQ (which requires calibration data and Hessian computation), HQQ:
 | **HQQ W2** | ❌ None | **8.3**         | **2.5×** |
 | **HQQ W1** | ❌ None | **14.7**        | **4.8×** |
 
----
+
 
 ## Theory: HQQ Algorithm
 
@@ -157,7 +142,7 @@ hqq_quantization/
     └── test_all.py                  ← 35+ unit tests (11 test groups)
 ```
 
----
+
 
 ## Bit-Width Comparison
 
@@ -182,37 +167,6 @@ hqq_quantization/
 | W2G64  | 8.30 | 3.05 | 68          | 2GB  |
 | W1G64  | 14.7 | 3.88 | 105         | 1.1GB|
 
----
-
-## Project Structure
-
-```
-hqq_quantization/
-├── config.py
-├── requirements.txt
-├── quantize_model.py
-├── run_benchmark.py
-├── models/
-│   ├── __init__.py
-│   └── llama_utils.py
-├── quantization/
-│   ├── __init__.py
-│   ├── hqq_core.py
-│   ├── hqq_linear.py
-│   └── hqq_model.py
-├── benchmarks/
-│   ├── __init__.py
-│   ├── speed_benchmark.py
-│   ├── accuracy_benchmark.py
-│   └── memory_benchmark.py
-├── utils/
-│   ├── __init__.py
-│   └── metrics.py
-└── tests/
-    └── test_all.py
-```
-
----
 
 ## Quick Start
 
@@ -247,7 +201,6 @@ python quantize_model.py --model meta-llama/Llama-2-7b-hf --bits 1 --group-size 
 python run_benchmark.py --model meta-llama/Llama-2-7b-hf --bits 1 2 4 8
 ```
 
----
 
 ## Usage
 
@@ -298,7 +251,7 @@ with torch.no_grad():
     output = model(**inputs)
 ```
 
----
+
 
 ## Configuration Reference
 
@@ -326,7 +279,7 @@ with torch.no_grad():
 | `ppl_dataset`  | `wikitext2` | Perplexity dataset |
 | `ppl_samples`  | `128`   | PPL evaluation samples |
 
----
+
 
 ## Testing
 
@@ -354,7 +307,7 @@ python tests/test_all.py
 | J — Metrics | BenchmarkReport, CSV/JSON save |
 | K — Bit-Packing | Round-trip W1/W2/W4/W8, size reduction |
 
----
+
 
 ## References
 
