@@ -4,7 +4,6 @@ A **complete, from-scratch** implementation of **Half-Quadratic Quantization (HQ
 applied to LLaMA 2, with full speed × accuracy × memory benchmarking at 1-bit,
 2-bit, 4-bit, and 8-bit precision.
 
----
 
 
 ## Overview
