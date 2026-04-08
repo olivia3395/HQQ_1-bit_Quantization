@@ -320,6 +320,5 @@ python tests/test_all.py
 
 <div align="center">
 
-*Run a 7B model on 1.1 GB of VRAM. No compromises required.*
 
 </div>
